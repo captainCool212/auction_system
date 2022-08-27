@@ -7,12 +7,12 @@ var ctx = document.getElementById('myBarChart');
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ['Food', 'Books', 'Clothes', 'Electronics', 'Films', 'Toys', 'Health'],
+    labels: window.categories_list,
     datasets: [{
       label: 'Categories',
       backgroundColor: 'rgba(2,117,216,1)',
       borderColor: 'rgba(2,117,216,1)',
-      data: [5, 3, 2, 1, 0, 0, 0],
+      data: window.categories_data,
     }],
   },
   options: {

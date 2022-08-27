@@ -4,5 +4,6 @@
 db.sqlite3
 media/
 venv/
+env/
 */migrations/*
 !*/migrations/__init__.py

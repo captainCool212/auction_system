@@ -7,7 +7,7 @@ var ctx = document.getElementById('myAreaChart');
 var myLineChart = new Chart(ctx, {
   type: 'line',
   data: {
-    labels: ['Clothes', 'Food', 'Electronics', 'Books', 'Films', 'Toys', 'Health'],
+    labels: window.categories_list,
     datasets: [{
       label: 'Categories',
       lineTension: 0.3,
@@ -20,7 +20,7 @@ var myLineChart = new Chart(ctx, {
       pointHoverBackgroundColor: 'rgba(2,117,216,1)',
       pointHitRadius: 50,
       pointBorderWidth: 2,
-      data: [2, 5, 1, 3, 0, 0, 0],
+      data: window.categories_data,
     }],
   },
   options: {

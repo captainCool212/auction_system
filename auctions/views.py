@@ -23,6 +23,20 @@ def index(request):
     for auction in auctions:
         auction.image = auction.get_images.first()
 
+    #chart data
+    categories_list = list(Category.objects.all().values_list('category_name', flat=True))
+    categories_data = []
+
+    for obj in Category.objects.all():
+        categories_data.append(len(Auction.objects.filter(category__id=obj.id)))
+
+    auction_data = Auction.objects.order_by('-current_bid')[:5]
+    auction_name_list = list(auction_data.values_list('title', flat=True))
+    auction_values = list(auction_data.values_list('current_bid', flat=True))
+    auction_value_list = []
+    for i in auction_values:
+        auction_value_list.append(int(i))
+
     # Show 5 auctions per page
     page = request.GET.get('page', 1)
     paginator = Paginator(auctions, 5)
@@ -36,6 +50,10 @@ def index(request):
 
     return render(request, 'index.html', {
         'categories': Category.objects.all(),
+        'categories_list': categories_list,
+        'categories_data':categories_data,
+        'auction_name_list':auction_name_list,
+        'auction_value_list':auction_value_list,
         'auctions': auctions,
         'expensive_auctions': expensive_auctions,
         'auctions_count': Auction.objects.all().count(),

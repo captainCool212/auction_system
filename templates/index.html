@@ -221,6 +221,13 @@
         
         </div>
     </div>
+    <script>
+        window.categories_data = {{ categories_data|safe }};
+        window.categories_list = {{ categories_list|safe }};
+        window.auction_name_list = {{ auction_name_list|safe }};
+        window.auction_value_list = {{ auction_value_list|safe }};
+        console.log( window.auction_name_list)
+    </script>
 
 
 {% endblock %}

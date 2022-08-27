@@ -7,9 +7,9 @@ var ctx = document.getElementById('myPieChart');
 var myPieChart = new Chart(ctx, {
   type: 'pie',
   data: {
-    labels: ['Auction 3', 'Auction 8', 'Auction 4', 'Auction 7'],
+    labels: window.auction_name_list,
     datasets: [{
-      data: [21.22, 15.58, 11.25, 8.32],
+      data: window.auction_value_list,
       backgroundColor: ['#007bff', '#dc3545', '#ffc107', '#28a745'],
     }],
   },
